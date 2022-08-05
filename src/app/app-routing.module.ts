@@ -1,3 +1,4 @@
+import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { StarshipComponent } from './components/starship/starship.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,8 +11,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'starships',
+    path: 'starship/all',
     component: StarshipComponent
+  },
+  {
+    path: 'starship',
+    component: StarshipDetailComponent
   }
 
 ]

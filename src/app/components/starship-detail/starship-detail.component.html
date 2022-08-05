@@ -1,1 +1,8 @@
-<p>starship-detail works!</p>
+<div class="container-fluid d-flex justify-content-center card mt-4 mb-2" style="width: 500px; padding: 0px;">
+    <img [src]="this.img" class="card-img-top" width="650px" height="450px" alt="no photo available">
+    <div class="card-body" style="background: black">
+        <h5 class="card-title" style="color: grey;">{{ starship?.name }}</h5>
+        <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
+        <a href="#" class="btn btn-danger" style="color: white;float: right;">subscribe</a>
+    </div>
+</div>

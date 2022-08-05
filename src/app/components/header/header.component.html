@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+                    <a class="nav-link active" aria-current="page" [routerLink]="''">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="starships">Starships</a>
+                    <a class="nav-link" [routerLink]="'starship/all'">Starships</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -37,4 +37,36 @@
             </form>
         </div>
     </div>
+</nav> -->
+
+<div class="container-fluid d-flex justify-content-center" style="background-color: black; padding: 0px;">
+    <div class="row">
+        <div class="col">
+            <img src="../../../assets/star-wars-logo.png" alt="">
+        </div>
+    </div>
+
+</div>
+
+<nav class="nav justify-content-center p-1" style="background-color: black; border: 1px solid gray;">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button style="background-color: black;" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+            <a aria-current="page" style="text-decoration: none;color: white;" [routerLink]="''">Home</a>
+        </button>
+        <button style="background-color: black;" class="nav-link" id="nav-starships-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-starships" type="button" role="tab" aria-controls="nav-starships"
+            aria-selected="false">
+            <a style="text-decoration: none;color: white;" [routerLink]="'starship/all'">Starships</a>
+        </button>
+    </div>
 </nav>
+<!-- <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        home
+    </div>
+    <div class="tab-pane fade" id="nav-starships" role="tabpanel" aria-labelledby="nav-starships-tab">
+        <app-starship></app-starship>
+    </div>
+
+</div> -->
