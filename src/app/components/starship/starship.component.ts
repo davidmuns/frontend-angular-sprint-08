@@ -1,13 +1,13 @@
-import { DataService } from './../../services/data.service';
+import { DataService } from '../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { IStarship } from 'src/app/models/istarship';
 
 @Component({
-  selector: 'app-starships',
-  templateUrl: './starships.component.html',
-  styleUrls: ['./starships.component.css']
+  selector: 'app-starship',
+  templateUrl: './starship.component.html',
+  styleUrls: ['./starship.component.css']
 })
-export class StarshipsComponent implements OnInit {
+export class StarshipComponent implements OnInit {
   starships: Array<IStarship> = [];
   constructor(private dataService: DataService) { }
 

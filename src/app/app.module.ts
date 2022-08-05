@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StarshipsComponent } from './components/starships/starships.component';
+import { StarshipComponent } from './components/starship/starship.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { StarshipsComponent } from './components/starships/starships.component';
     HomeComponent,
     HeaderComponent,
     StarshipDetailComponent,
-    StarshipsComponent
+    StarshipComponent
   ],
   imports: [
     BrowserModule,
