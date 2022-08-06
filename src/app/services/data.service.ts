@@ -9,11 +9,12 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   @Output() subscribeTrigger: EventEmitter<any> = new EventEmitter();
   baseUrl = environment.baseApi;
+  pagedUrl = environment.pagedUrl;
   starshipId!: string;
   constructor(private readonly http: HttpClient) { }
 
-  public getStarships(): Observable<any> {
-    return this.http.get<any>(this.baseUrl)
+  public getStarships(pageNumber: any): Observable<any> {
+    return this.http.get<any>(`${this.pagedUrl}${pageNumber}`)
   }
 
   public getStarshipById(url: string) {

@@ -12,14 +12,45 @@ import { Router } from '@angular/router';
 export class StarshipComponent implements OnInit {
   starships: Array<IStarship> = [];
   starship!: IStarship;
-  constructor(private dataService: DataService, private router: Router) { }
+  pageNumber: number;
+  isForwardBtnDisabled: boolean;
+  isBackwardBtnDisables: boolean;
+  constructor(private dataService: DataService, private router: Router) {
+    this.isBackwardBtnDisables = false;
+    this.isForwardBtnDisabled = false;
+    this.pageNumber = 1;
+    this.getStarships();
+  }
 
   ngOnInit(): void {
+
+  }
+
+  public pageForward() {
+    this.pageNumber++;
+    if (this.pageNumber > 4) {
+      this.isForwardBtnDisabled = true;
+      this.pageNumber = 4;
+    } else {
+      this.isForwardBtnDisabled = false;
+      this.isBackwardBtnDisables = false;
+    }
+    this.getStarships();
+  }
+  public pageBackward() {
+    this.pageNumber--;
+    if (this.pageNumber < 1) {
+      this.isBackwardBtnDisables = true;
+      this.pageNumber = 1;
+    } else {
+      this.isBackwardBtnDisables = false;
+      this.isForwardBtnDisabled = false;
+    }
     this.getStarships();
   }
 
   public getStarships() {
-    this.dataService.getStarships().subscribe(
+    this.dataService.getStarships(this.pageNumber).subscribe(
       (data: any) => {
         this.starships = data.results;
       }
@@ -32,7 +63,6 @@ export class StarshipComponent implements OnInit {
         this.starship = data;
         this.dataService.subscribeTrigger.emit(this.starship);
       }
-
     )
 
     this.router.navigate(['starship'])

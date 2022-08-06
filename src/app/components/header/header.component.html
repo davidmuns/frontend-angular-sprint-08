@@ -1,54 +1,34 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-5">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="''">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'starship/all'">Starships</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav> -->
-
-<div class="container-fluid d-flex justify-content-center" style="background-color: black; padding: 0px;">
+<div class="container-fluid justify-content-center bg-black">
     <div class="row">
-        <div class="col">
-            <img src="../../../assets/star-wars-logo.png" alt="">
-        </div>
-    </div>
 
+        <div class="col-4"></div>
+
+        <div class="col-4 text-center">
+            <img src="../../../assets/star-wars-logo.png" width="180px" height="180px" alt="">
+        </div>
+
+        <div class="col-1"></div>
+
+        <!-- <a  class="btn btn-dark col-2 align-self-center" (click)="this.login.logout()">LOG OUT</a> -->
+        <a class="btn btn-black col-1 align-self-center" style="color: gray;">LOG IN</a>
+        <a class="btn btn-black col-1 align-self-center" style="color: gray;">SIGN UP</a>
+    </div>
 </div>
 
-<nav class="nav justify-content-center p-1" style="background-color: black; border: 1px solid gray;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="nav justify-content-center bg-black" style="border: 1px solid gray;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button style="background-color: black;" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
             data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">

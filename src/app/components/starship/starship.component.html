@@ -1,14 +1,29 @@
-<div class="conatiner">
-
-    <div class="row d-flex justify-content-center mt-4 mx-5" style="background-color: rgb(23, 20, 20); color: gray;"
-        *ngFor="let starship of starships">
-        <a (click)="getStarshipById(starship.url)">
-            <div class="col-12">
-                <p>{{ starship.name }}</p>
-                <p>{{ starship.model }}</p>
+<body>
+    <div class="container-fluid" style="padding: 0px;">
+        <div class="row mt-4">
+            <div class="col-5"></div>
+            <div class="col-1 text-center">
+                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="pageBackward()"
+                    [disabled]="this.isBackwardBtnDisables">backward</button>
             </div>
-        </a>
-
+            <div class="col-1 text-center">
+                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="pageForward()"
+                    [disabled]="this.isForwardBtnDisabled">forward</button>
+            </div>
+            <div class="col-5"></div>
+        </div>
     </div>
 
-</div>
+    <div class="container-fluid">
+        <div class="row" *ngFor="let starship of starships">
+            <div class="col-1"></div>
+            <div class="col-10 starship-container mt-4 bg-dark p-3" style="color: gray; border-radius: 15px;">
+                <a (click)="getStarshipById(starship.url)">
+                    <p>{{ starship.name }}</p>
+                    <p>{{ starship.model }}</p>
+                </a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</body>

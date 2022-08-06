@@ -1,8 +1,10 @@
-<div class="container-fluid d-flex justify-content-center card mt-4 mb-2" style="width: 500px; padding: 0px;">
-    <img [src]="this.img" class="card-img-top" width="650px" height="450px" alt="no photo available">
-    <div class="card-body" style="background: black">
+<!--onerror => https://gist.github.com/dprea/1cd27241db661818e509 -->
+<div class="container-fluid d-flex justify-content-center card mt-5 bg-dark" style="width: 500px; padding: 5px;">
+    <img [src]="this.img" class="card-img-top" width="650px" height="450px" alt="not available"
+        onerror="this.src='../../../assets/default-img.png'">
+    <div class="card-body bg-black">
         <h5 class="card-title" style="color: grey;">{{ starship?.name }}</h5>
         <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
-        <a href="#" class="btn btn-danger" style="color: white;float: right;">subscribe</a>
+        <a href="starship/all" class="btn btn-dark" style="color: yellow;float: right;">Back</a>
     </div>
 </div>
