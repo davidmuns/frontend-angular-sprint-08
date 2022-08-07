@@ -9,6 +9,12 @@ import { StarshipDetailComponent } from './components/starship-detail/starship-d
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarshipComponent } from './components/starship/starship.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { SignUpModalComponent } from './components/sign-up-modal/sign-up-modal.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,12 @@ import { StarshipComponent } from './components/starship/starship.component';
     HomeComponent,
     HeaderComponent,
     StarshipDetailComponent,
-    StarshipComponent
+    StarshipComponent,
+    NavigationBarComponent,
+    LoginModalComponent,
+    LoginFormComponent,
+    SignUpFormComponent,
+    SignUpModalComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +36,7 @@ import { StarshipComponent } from './components/starship/starship.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [DataService],
+  providers: [DataService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
