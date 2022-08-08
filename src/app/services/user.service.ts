@@ -8,9 +8,11 @@ import { Subject, Observable } from 'rxjs';
 export class UserService {
   private users: IUser[];
   private usersSubject$: Subject<IUser[]>;
+  isUserValid: boolean;
   constructor() {
     this.users = [];
     this.usersSubject$ = new Subject();
+    this.isUserValid = false;
   }
 
   public addUser(user: IUser) {
@@ -25,9 +27,11 @@ export class UserService {
       this.users.push(user);
       // changes register
       this.usersSubject$.next(this.users);
+      this.isUserValid = true;
 
     } else {
       alert(`email ${user.email} already exists`)
+      this.isUserValid = false;
     }
 
   }

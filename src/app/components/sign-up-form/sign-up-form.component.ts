@@ -1,5 +1,5 @@
 import { UserService } from './../../services/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./sign-up-form.component.css']
 })
 export class SignUpFormComponent implements OnInit {
-
+  @ViewChild('closebutton') closebutton: any;
   signUpFormGroup: FormGroup;
 
   // constructor(private userService: UserService) {
@@ -25,13 +25,13 @@ export class SignUpFormComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public onSubmit() {
-    console.log(this.signUpFormGroup);
-
     this.userService.addUser(this.signUpFormGroup.value);
+    if (this.userService.isUserValid) {
+      this.signUpFormGroup.reset();
+      this.closebutton.nativeElement.click();
+    }
   }
-
 }

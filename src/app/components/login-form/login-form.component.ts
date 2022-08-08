@@ -1,6 +1,6 @@
 import { IUser } from './../../models/iuser';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,15 +9,24 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  @ViewChild('closebutton') closebutton: any;
   loginFormGroup: FormGroup;
   users: IUser[];
-  constructor(private userService: UserService) {
-    this.users = [];
-    this.loginFormGroup = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    });
 
+  // constructor(private userService: UserService) {
+  //   this.users = [];
+  //   this.loginFormGroup = new FormGroup({
+  //     email: new FormControl(),
+  //     password: new FormControl()
+  //   });
+  // }
+
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+    this.users = [];
+    this.loginFormGroup = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    })
   }
 
   ngOnInit(): void {
@@ -28,21 +37,19 @@ export class LoginFormComponent implements OnInit {
 
   public onSubmit() {
     let emailExists = false;
-    const tempUser: IUser = this.loginFormGroup.value;
-    console.log('email: ', tempUser.email);
-
-    console.log(this.users);
-
-    this.users.forEach(user => {
-      if (tempUser.email === user.email) {
+    const newUser: IUser = this.loginFormGroup.value;
+    this.users.forEach(data => {
+      if (newUser.email === data.email && newUser.password === data.password) {
         emailExists = true;
       }
     })
 
     if (emailExists) {
-      alert('user exists')
+      this.loginFormGroup.reset();
+      this.closebutton.nativeElement.click();
     } else {
-      alert('user does not exist')
+      alert('this user does not exist')
+      this.loginFormGroup.reset();
     }
 
 

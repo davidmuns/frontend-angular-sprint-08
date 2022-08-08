@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public readonly userService: UserService) { }
 
   ngOnInit(): void {
   }
