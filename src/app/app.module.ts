@@ -10,10 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarshipComponent } from './components/starship/starship.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
-import { SignUpModalComponent } from './components/sign-up-modal/sign-up-modal.component';
 import { UserService } from './services/user.service';
 
 @NgModule({
@@ -24,10 +22,8 @@ import { UserService } from './services/user.service';
     StarshipDetailComponent,
     StarshipComponent,
     NavigationBarComponent,
-    LoginModalComponent,
     LoginFormComponent,
-    SignUpFormComponent,
-    SignUpModalComponent
+    SignUpFormComponent
   ],
   imports: [
     BrowserModule,
