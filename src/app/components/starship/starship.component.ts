@@ -14,9 +14,10 @@ export class StarshipComponent implements OnInit {
   starship!: IStarship;
   pageNumber: number;
   isForwardBtnDisabled: boolean;
-  isBackwardBtnDisables: boolean;
+  isBackwardBtnDisabled: boolean;
+
   constructor(private dataService: DataService, private router: Router) {
-    this.isBackwardBtnDisables = false;
+    this.isBackwardBtnDisabled = false;
     this.isForwardBtnDisabled = false;
     this.pageNumber = 1;
     this.getStarships();
@@ -33,17 +34,17 @@ export class StarshipComponent implements OnInit {
       this.pageNumber = 4;
     } else {
       this.isForwardBtnDisabled = false;
-      this.isBackwardBtnDisables = false;
+      this.isBackwardBtnDisabled = false;
     }
     this.getStarships();
   }
   public pageBackward() {
     this.pageNumber--;
     if (this.pageNumber < 1) {
-      this.isBackwardBtnDisables = true;
+      this.isBackwardBtnDisabled = true;
       this.pageNumber = 1;
     } else {
-      this.isBackwardBtnDisables = false;
+      this.isBackwardBtnDisabled = false;
       this.isForwardBtnDisabled = false;
     }
     this.getStarships();

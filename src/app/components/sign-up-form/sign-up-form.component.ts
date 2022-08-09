@@ -9,29 +9,36 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SignUpFormComponent implements OnInit {
   @ViewChild('closebutton') closebutton: any;
-  signUpFormGroup: FormGroup;
+  signUpForm: FormGroup;
 
   // constructor(private userService: UserService) {
-  //   this.signUpFormGroup = new FormGroup({
+  //   this.signUpForm = new FormGroup({
   //     email: new FormControl(),
   //     password: new FormControl()
   //   });
   // }
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
-    this.signUpFormGroup = this.formBuilder.group({
+    this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
+    this.signUpForm.reset();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.signUpForm.reset();
+  }
 
   public onSubmit() {
-    this.userService.addUser(this.signUpFormGroup.value);
-    if (this.userService.isUserValid) {
-      this.signUpFormGroup.reset();
+    const newUser = this.signUpForm.value;
+    this.userService.addUser(newUser);
+
+    if (this.userService.userExist === false) {
+      this.signUpForm.reset();
       this.closebutton.nativeElement.click();
+    } else {
+      this.signUpForm.reset();
     }
   }
 }

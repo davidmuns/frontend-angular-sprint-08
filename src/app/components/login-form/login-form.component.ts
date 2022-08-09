@@ -10,12 +10,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginFormComponent implements OnInit {
   @ViewChild('closebutton') closebutton: any;
-  loginFormGroup: FormGroup;
+  loginForm: FormGroup;
   users: IUser[];
 
   // constructor(private userService: UserService) {
   //   this.users = [];
-  //   this.loginFormGroup = new FormGroup({
+  //   this.loginForm = new FormGroup({
   //     email: new FormControl(),
   //     password: new FormControl()
   //   });
@@ -23,36 +23,28 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
     this.users = [];
-    this.loginFormGroup = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
+    this.loginForm.reset();
   }
 
   ngOnInit(): void {
     this.userService.getUsers$().subscribe(users => {
       this.users = users;
     })
+    this.loginForm.reset();
   }
 
   public onSubmit() {
-    let emailExists = false;
-    const newUser: IUser = this.loginFormGroup.value;
-    this.users.forEach(data => {
-      if (newUser.email === data.email && newUser.password === data.password) {
-        emailExists = true;
-      }
-    })
-
-    if (emailExists) {
-      this.loginFormGroup.reset();
+    const user = this.loginForm.value;
+    const userExists = this.userService.getUserValidation(user);
+    if (userExists) {
+      this.loginForm.reset();
       this.closebutton.nativeElement.click();
     } else {
-      alert('this user does not exist')
-      this.loginFormGroup.reset();
+      this.loginForm.reset();
     }
-
-
   }
-
 }

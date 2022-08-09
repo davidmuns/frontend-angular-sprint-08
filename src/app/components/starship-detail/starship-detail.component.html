@@ -1,13 +1,63 @@
-<!--onerror => https://gist.github.com/dprea/1cd27241db661818e509 -->
+<!-- onerror => https://gist.github.com/dprea/1cd27241db661818e509  -->
 
-<div class="container card mt-5" style="width: 600px; padding: 2px;">
-    <!-- <img [src]="this.img" class="card-img-top" width="650px" height="450px" alt="not available"
-        onerror="this.src='../../../assets/default-img.png'"> -->
+<!-- <div class="container card mt-5" style="width: 600px; padding: 2px;">
     <img [src]="this.img" class="card-img-top" onerror="this.src='../../../assets/default-img.png'"
         alt="starship-photo">
     <div class="card-body bg-black">
         <h5 class="card-title" style="color: grey;">{{ starship?.name }}</h5>
         <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
-        <a href="starship/all" class="btn btn-dark" style="color: yellow;float: right;">Back</a>
+        back button
+        <a class="btn btn-dark" style="color: yellow;float: right;" (click)="gotoStarships()">Back</a>
+    </div>
+</div> -->
+
+<!-- <body style="background-color: black;"> -->
+
+<div class="container mt-2" style="width: 800px; padding: 0; background-color: black;">
+    <div>
+        <img [src]="this.img" class="card-img-top" onerror="this.src='../../../assets/default-img.png'"
+            alt="starship-photo">
+    </div>
+    <div class="card-body bg-black">
+        <div class="row">
+            <h5 class="col-12 card-title mx-2" style="color: yellow; font-size: 30px;">{{ starship?.name }}</h5>
+        </div>
+        <div class="row">
+            <p class="col-12" style="text-align: center; color: gray;">Description</p>
+        </div>
+        <div class="row">
+            <div class="col-6 d-flex align-items-baseline">
+                <p class="mx-2" style="color: white;">Model:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
+            </div>
+            <div class="col-6 d-flex align-items-baseline">
+                <p style="color: white;">Manufacturer:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.manufacturer }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 d-flex align-items-baseline">
+                <p class="mx-2" style="color: white;">Cost:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.cost_in_credits }}</p>
+            </div>
+            <div class="col-6 d-flex align-items-baseline">
+                <p style="color: white;">Length:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.length }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 d-flex align-items-baseline">
+                <p class="mx-2" style="color: white;">Speed:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.max_atmosphering_speed }}</p>
+            </div>
+            <div class="col-6 d-flex align-items-baseline">
+                <p style="color: white;">Crew:</p>&nbsp;
+                <p class="card-text" style="color: grey;">{{ starship?.crew }}</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <a class="col-1 btn btn-dark my-3" style="color: yellow;" (click)="gotoStarships()">Back</a>
+        </div>
     </div>
 </div>
+<!-- </body> -->
