@@ -1,16 +1,5 @@
 <!-- onerror => https://gist.github.com/dprea/1cd27241db661818e509  -->
 
-<!-- <div class="container card mt-5" style="width: 600px; padding: 2px;">
-    <img [src]="this.img" class="card-img-top" onerror="this.src='../../../assets/default-img.png'"
-        alt="starship-photo">
-    <div class="card-body bg-black">
-        <h5 class="card-title" style="color: grey;">{{ starship?.name }}</h5>
-        <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
-        back button
-        <a class="btn btn-dark" style="color: yellow;float: right;" (click)="gotoStarships()">Back</a>
-    </div>
-</div> -->
-
 <body style="background-color: black;">
 
     <div class="container mt-2" style="width: 800px; padding: 0; background-color: black;">
@@ -27,31 +16,31 @@
             </div>
             <div class="row">
                 <div class="col-6 d-flex align-items-baseline">
-                    <p class="mx-2" style="color: white;">Model:</p>&nbsp;
+                    <p class="mx-2" style="color: white;">Model:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.model }}</p>
                 </div>
                 <div class="col-6 d-flex align-items-baseline">
-                    <p style="color: white;">Manufacturer:</p>&nbsp;
+                    <p class="mx-2" style="color: white;">Manufacturer:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.manufacturer }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 d-flex align-items-baseline">
-                    <p class="mx-2" style="color: white;">Cost:</p>&nbsp;
+                    <p class="mx-2" class="mx-2" style="color: white;">Cost:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.cost_in_credits }}</p>
                 </div>
                 <div class="col-6 d-flex align-items-baseline">
-                    <p style="color: white;">Length:</p>&nbsp;
+                    <p class="mx-2" style="color: white;">Length:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.length }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 d-flex align-items-baseline">
-                    <p class="mx-2" style="color: white;">Speed:</p>&nbsp;
+                    <p class="mx-2" style="color: white;">Speed:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.max_atmosphering_speed }}</p>
                 </div>
                 <div class="col-6 d-flex align-items-baseline">
-                    <p style="color: white;">Crew:</p>&nbsp;
+                    <p class="mx-2" style="color: white;">Crew:</p>
                     <p class="card-text" style="color: grey;">{{ starship?.crew }}</p>
                 </div>
             </div>

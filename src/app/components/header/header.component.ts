@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   users: IUser[];
 
-  constructor(private userService: UserService) {
+  constructor(public readonly userService: UserService) {
     this.users = [];
   }
 
@@ -21,6 +21,10 @@ export class HeaderComponent implements OnInit {
         this.users = users;
       }
     )
+  }
+
+  public onLogout() {
+    this.userService.isUserValidated = false;
   }
 
 }

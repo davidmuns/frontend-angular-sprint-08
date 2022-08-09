@@ -13,12 +13,12 @@ export class StarshipComponent implements OnInit {
   starships: Array<IStarship> = [];
   starship!: IStarship;
   pageNumber: number;
-  isForwardBtnDisabled: boolean;
-  isBackwardBtnDisabled: boolean;
+  isNextBtnDisabled: boolean;
+  isPreviousBtnDisabled: boolean;
 
   constructor(private dataService: DataService, private router: Router) {
-    this.isBackwardBtnDisabled = false;
-    this.isForwardBtnDisabled = false;
+    this.isPreviousBtnDisabled = false;
+    this.isNextBtnDisabled = false;
     this.pageNumber = 1;
     this.getStarships();
   }
@@ -27,25 +27,25 @@ export class StarshipComponent implements OnInit {
 
   }
 
-  public pageForward() {
+  public goNext() {
     this.pageNumber++;
     if (this.pageNumber > 4) {
-      this.isForwardBtnDisabled = true;
+      this.isNextBtnDisabled = true;
       this.pageNumber = 4;
     } else {
-      this.isForwardBtnDisabled = false;
-      this.isBackwardBtnDisabled = false;
+      this.isNextBtnDisabled = false;
+      this.isPreviousBtnDisabled = false;
     }
     this.getStarships();
   }
-  public pageBackward() {
+  public goPrevious() {
     this.pageNumber--;
     if (this.pageNumber < 1) {
-      this.isBackwardBtnDisabled = true;
+      this.isPreviousBtnDisabled = true;
       this.pageNumber = 1;
     } else {
-      this.isBackwardBtnDisabled = false;
-      this.isForwardBtnDisabled = false;
+      this.isPreviousBtnDisabled = false;
+      this.isNextBtnDisabled = false;
     }
     this.getStarships();
   }
@@ -57,7 +57,6 @@ export class StarshipComponent implements OnInit {
       }
     )
   }
-
   public getStarshipById(url: string) {
     this.dataService.getStarshipById(url).subscribe(
       (data: any) => {
@@ -65,11 +64,8 @@ export class StarshipComponent implements OnInit {
         this.dataService.subscribeTrigger.emit(this.starship);
       }
     )
-
     this.router.navigate(['starship'])
-
   }
-
   public getStarship() {
     return this.starship;
   }

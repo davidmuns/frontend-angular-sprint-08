@@ -9,14 +9,18 @@ export class UserService {
   private users: IUser[];
   private usersSubject$: Subject<IUser[]>;
   userExist: boolean;
+  isUserValidated: boolean;
+  user!: IUser;
 
   constructor() {
     this.users = [];
     this.usersSubject$ = new Subject();
     this.userExist = false;
+    this.isUserValidated = false;
+
   }
 
-  public getUserValidation(user: IUser): boolean {
+  public checkIfUserExists(user: IUser): boolean {
     let checks = 0
     this.users.forEach(data => {
       if (user.email === data.email && user.password === data.password) {
@@ -24,14 +28,19 @@ export class UserService {
       }
     })
     this.userExist = checks != 0 ? true : false;
-    if (this.userExist === false) alert('Invalid email or password.')
+    if (this.userExist === false) {
+      alert('Invalid email or password.')
+    } else {
+      this.isUserValidated = true;
+    }
     return this.userExist;
   }
 
   public addUser(user: IUser) {
+    this.user = user;
     let emailExists: boolean = false;
     this.users.forEach(item => {
-      if (item.email === user.email) {
+      if (item.email === this.user.email) {
         emailExists = true;
       }
     })
@@ -40,9 +49,11 @@ export class UserService {
       // changes register
       this.usersSubject$.next(this.users);
       this.userExist = false;
+      this.isUserValidated = true;
     } else {
-      alert(`email ${user.email} already exists`)
+      alert(`email ${this.user.email} already exists`)
       this.userExist = true;
+      this.isUserValidated = false;
     }
   }
   public getUsers$(): Observable<IUser[]> {

@@ -4,12 +4,12 @@
         <div class="row">
             <div class="col-5"></div>
             <div class="col-1 text-center">
-                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="pageBackward()"
-                    [disabled]="this.isBackwardBtnDisabled">backward</button>
+                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goPrevious()"
+                    [disabled]="this.isPreviousBtnDisabled">previous</button>
             </div>
             <div class="col-1 text-center">
-                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="pageForward()"
-                    [disabled]="this.isForwardBtnDisabled">forward</button>
+                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goNext()"
+                    [disabled]="this.isNextBtnDisabled">next</button>
             </div>
             <div class="col-5"></div>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-1"></div>
             <div class="col-10 starship-container mt-4 bg-dark p-3" style="color: gray; border-radius: 15px;">
                 <a (click)="getStarshipById(starship.url)">
-                    <p>{{ starship.name }}</p>
+                    <p>{{ starship.name | uppercase }}</p>
                     <p>{{ starship.model }}</p>
                 </a>
             </div>

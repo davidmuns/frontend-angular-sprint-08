@@ -39,7 +39,7 @@ export class LoginFormComponent implements OnInit {
 
   public onSubmit() {
     const user = this.loginForm.value;
-    const userExists = this.userService.getUserValidation(user);
+    const userExists = this.userService.checkIfUserExists(user);
     if (userExists) {
       this.loginForm.reset();
       this.closebutton.nativeElement.click();

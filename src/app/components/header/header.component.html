@@ -7,15 +7,25 @@
             <img src="../../../assets/star-wars-logo.png" width="180px" height="180px" alt="">
         </div>
 
-        <div class="col-1"></div>
+        <!-- <div class="col-1"></div> -->
 
-        <!-- <a  class="btn btn-dark col-2 align-self-center" (click)="this.login.logout()">LOG OUT</a> -->
-        <a class="btn btn-black col-1 align-self-center" data-bs-toggle="modal" data-bs-target="#loginModal"
-            style="color: gray;">LOG IN</a>
-        <a class="btn btn-black col-1 align-self-center" data-bs-toggle="modal" data-bs-target="#signUpModal"
-            style="color: gray;">SIGN UP</a>
-        <ul>
-            <li *ngFor="let user of users" style="color: blue;">{{ user.email }} | {{ user.password }}</li>
+        <!-- Displayed when the user has logged out. -->
+        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col-1 align-self-center"
+            data-bs-toggle="modal" data-bs-target="#loginModal" style="color: gray;">LOG IN</a>
+        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col-1 align-self-center"
+            data-bs-toggle="modal" data-bs-target="#signUpModal" style="color: gray;">SIGN UP</a>
+
+        <!-- Displayed when the user has signed up -->
+        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col-2 align-self-center"
+            style="color: gray;">{{ this.userService.user.email }}</a>
+        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col-1 align-self-center" style="color: gray;"
+            (click)="onLogout()">LOG OUT</a>
+
+        <!-- Print registered users -->
+        <ul *ngIf="users.length > 0">
+            <p style="text-align: center; color: blue;">USERS</p>
+            <li *ngFor="let user of users" style="color: blue; text-align: center;">{{ user.email }} | {{ user.password
+                }}</li>
         </ul>
     </div>
 </div>

@@ -16,13 +16,6 @@ export class StarshipDetailComponent implements OnInit {
   constructor(private dataService: DataService, private readonly router: Router) {
     this.id = this.dataService.starshipId;
     this.img = `https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`;
-
-
-
-    console.log(this.img);
-
-
-    alert(this.img);
     this.dataService.subscribeTrigger.subscribe(
       data => {
         this.starship = data;
