@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { IUser } from './../../models/iuser';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   users: IUser[];
 
-  constructor(public readonly userService: UserService) {
+  constructor(public readonly userService: UserService, private router: Router) {
     this.users = [];
   }
 
@@ -26,8 +27,8 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLogout() {
-
     this.userService.isUserValidated = false;
+    this.router.navigate([''])
   }
 
 }

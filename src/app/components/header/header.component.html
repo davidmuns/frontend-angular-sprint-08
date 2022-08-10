@@ -1,25 +1,25 @@
 <div class="container-fluid justify-content-center bg-black">
     <div class="row">
 
-        <div class="col-4"></div>
+        <div class="col col-md-4"></div>
 
-        <div class="col-4 text-center mt-2 mb-3">
+        <div class="col col-md-4 text-center mt-2 mb-3">
             <img src="../../../assets/white-star-wars-logo.png" width="250px" height="110px" alt="">
         </div>
 
         <!-- <div class="col-1"></div> -->
 
         <!-- Displayed when the user has logged out. -->
-        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col-1 align-self-center"
+        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col col-md-1 align-self-center"
             data-bs-toggle="modal" data-bs-target="#loginModal" style="color: gray;">LOG IN</a>
-        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col-1 align-self-center"
+        <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col col-md-1 align-self-center"
             data-bs-toggle="modal" data-bs-target="#signUpModal" style="color: gray;">SIGN UP</a>
 
         <!-- Displayed when the user has signed up -->
-        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col-2 align-self-center"
+        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col col-md-2 align-self-center"
             style="color: gray;">{{ this.userService.user.email }}</a>
-        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col-1 align-self-center" style="color: gray;"
-            (click)="onLogout()">LOG OUT</a>
+        <a *ngIf="this.userService.isUserValidated" class="btn btn-black col col-md-1 align-self-center"
+            style="color: gray;" (click)="onLogout()">LOG OUT</a>
 
         <!-- Print registered users -->
         <ul *ngIf="users.length > 0">

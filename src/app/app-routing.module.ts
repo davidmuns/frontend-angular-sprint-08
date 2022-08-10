@@ -1,3 +1,4 @@
+import { UserGuard } from './user.guard';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { StarshipComponent } from './components/starship-list/starship.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'starship/all',
-    component: StarshipComponent
+    component: StarshipComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'starship',
