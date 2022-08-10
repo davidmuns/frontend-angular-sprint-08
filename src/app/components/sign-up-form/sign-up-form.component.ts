@@ -19,6 +19,7 @@ export class SignUpFormComponent implements OnInit {
   // }
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
+    // Reactive form
     this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -34,6 +35,7 @@ export class SignUpFormComponent implements OnInit {
     const newUser = this.signUpForm.value;
     this.userService.addUser(newUser);
 
+    // Closing modal window and reseting form if user exists by pressing button submit (create account)
     if (this.userService.userExist === false) {
       this.signUpForm.reset();
       this.closebutton.nativeElement.click();

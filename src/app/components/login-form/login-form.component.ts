@@ -23,6 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
     this.users = [];
+    // Reactive form
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -38,8 +39,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    const user = this.loginForm.value;
+    const user: IUser = this.loginForm.value;
     const userExists = this.userService.checkIfUserExists(user);
+
+    // Closing modal window and reseting form if user exists by pressing button submit (continue)
     if (userExists) {
       this.loginForm.reset();
       this.closebutton.nativeElement.click();

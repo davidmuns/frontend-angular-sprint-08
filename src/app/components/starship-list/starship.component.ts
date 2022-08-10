@@ -38,6 +38,7 @@ export class StarshipComponent implements OnInit {
     }
     this.getStarships();
   }
+
   public goPrevious() {
     this.pageNumber--;
     if (this.pageNumber < 1) {
@@ -57,6 +58,7 @@ export class StarshipComponent implements OnInit {
       }
     )
   }
+
   public getStarshipById(url: string) {
     this.dataService.getStarshipById(url).subscribe(
       (data: any) => {
@@ -66,6 +68,7 @@ export class StarshipComponent implements OnInit {
     )
     this.router.navigate(['starship'])
   }
+
   public getStarship() {
     return this.starship;
   }
