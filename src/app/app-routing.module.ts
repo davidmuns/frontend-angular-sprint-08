@@ -1,5 +1,5 @@
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
-import { StarshipComponent } from './components/starship/starship.component';
+import { StarshipComponent } from './components/starship-list/starship.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';

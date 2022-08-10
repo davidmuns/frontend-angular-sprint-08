@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StarshipComponent } from './components/starship/starship.component';
+import { StarshipComponent } from './components/starship-list/starship.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
