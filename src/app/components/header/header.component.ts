@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLogout() {
+
     this.userService.isUserValidated = false;
   }
 

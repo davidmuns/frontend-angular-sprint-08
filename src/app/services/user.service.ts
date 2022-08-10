@@ -21,9 +21,10 @@ export class UserService {
   }
 
   public checkIfUserExists(user: IUser): boolean {
+    this.user = user;
     let checks = 0
     this.users.forEach(data => {
-      if (user.email === data.email && user.password === data.password) {
+      if (this.user.email === data.email && this.user.password === data.password) {
         checks++
       }
     })
