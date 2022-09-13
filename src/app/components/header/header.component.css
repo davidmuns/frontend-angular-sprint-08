@@ -5,35 +5,36 @@ header{
     flex-direction: row;
     margin-bottom: 0px;
 }
-.logo{
+.logoStarWars{
     background-image: url(src/assets/white-star-wars-logo.png);
     width:230px;
     height: 100px;
-    /* background-size: cover; */
+    background-size: cover;
     margin: 12px auto
 }
-.login{
+.notLogged{
     min-width:150px;
     color: white;
     display:flex;
     align-items: center;
     justify-content: flex-end;
 }
-.login>a{
+.notLogged>a:hover{
+    color:white;
+}
+.notLogged>a{
     color: darkgray;
     margin-top: 70px;
     cursor: pointer;
     font-weight: bold;
 }
-.login>a:hover{
-    color:white;
-}
+
 span{
     color: darkgray;
     margin-top: 70px;
     cursor:auto;
 }
-.logout{
+.logged{
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -42,7 +43,7 @@ span{
     cursor: pointer;
     font-weight: bold;
 }
-.logout:hover{
+.logged:hover{
     color:white;
 }
 
