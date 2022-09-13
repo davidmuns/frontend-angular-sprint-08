@@ -1,13 +1,13 @@
-<nav class="nav justify-content-center bg-black" style="border: 1px solid gray;">
+<!-- <nav class="nav justify-content-center bg-black" style="border: 1px solid gray;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-        <!-- Home button -->
+        
         <button style="background-color: black;" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
             data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             <a aria-current="page" style="text-decoration: none;color: white;" [routerLink]="''">Home</a>
         </button>
 
-        <!-- Starships button -->
+     
         <button style="background-color: black;" class="nav-link" id="nav-starships-tab" data-bs-toggle="tab"
             data-bs-target="#nav-starships" type="button" role="tab" aria-controls="nav-starships"
             aria-selected="false">
@@ -18,4 +18,18 @@
                 [routerLink]="'starship/all'">Starships</a>
         </button>
     </div>
+</nav> -->
+
+<nav class="nav justify-content-center bg-black">
+        <div>
+            <p [routerLink]="''">HOME</p>
+        </div>
+        <div>
+            <p *ngIf="this.userService.isUserValidated === false" data-bs-toggle="modal" data-bs-target="#loginModal">
+                STARSHIPS
+            </p>
+            <p *ngIf="this.userService.isUserValidated" [routerLink]="'starship/all'"> STARSHIPS</p>
+        </div>
+        <div></div>
 </nav>
+

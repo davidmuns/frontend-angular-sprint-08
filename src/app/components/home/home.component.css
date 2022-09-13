@@ -2,13 +2,9 @@
 
 body {
     overflow: hidden;
-    background-color: black;
-    /* background-image: url(http://untroubled.org/backgrounds/space/stars.gif); */
-    background-image: url('../../../assets/stars_galaxies.jpg');
-    font-family: 'Roboto', 'Oxygen', sans-serif;
+    background-color: transparent;
     margin: 0;
     color: yellow;
-    background-repeat: no-repeat;
 }
 
 h2 {

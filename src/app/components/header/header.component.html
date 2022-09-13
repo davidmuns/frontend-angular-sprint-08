@@ -1,4 +1,4 @@
-<div class="container-fluid justify-content-center bg-black">
+<!-- <div class="container-fluid justify-content-center bg-black">
     <div class="row">
 
         <div class="col col-md-4 mt-5"></div>
@@ -7,28 +7,47 @@
             <img src="../../../assets/white-star-wars-logo.png" width="250px" height="110px" alt="">
         </div>
 
-        <!-- <div class="col-1"></div> -->
+        <div class="col-1"></div>
 
-        <!-- Displayed when the user has logged out. -->
+       
         <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col col-md-1 align-self-center"
             data-bs-toggle="modal" data-bs-target="#loginModal" style="color: gray;">LOG IN</a>
         <a *ngIf="this.userService.isUserValidated === false" class="btn btn-black col col-md-1 align-self-center"
             data-bs-toggle="modal" data-bs-target="#signUpModal" style="color: gray;">SIGN UP</a>
 
-        <!-- Displayed when the user has signed up -->
+      
         <a *ngIf="this.userService.isUserValidated" class="btn btn-black col col-md-2 align-self-center"
             style="color: gray;">{{ this.userService.user.email }}</a>
         <a *ngIf="this.userService.isUserValidated" class="btn btn-black col col-md-1 align-self-center"
             style="color: gray;" (click)="onLogout()">LOG OUT</a>
 
-        <!-- Print registered users -->
+       
         <ul *ngIf="users.length > 0">
             <p style="text-align: center; color: blue;">USERS</p>
-            <li *ngFor="let user of users" style="color: blue; text-align: center;">{{ user.email }} | {{ user.password
-                }}</li>
+            <li *ngFor="let user of users" style="color: blue; text-align: center;">{{ user.email }} | {{ user.password }}</li>
         </ul>
     </div>
-</div>
+</div> -->
+
+<header class="container-fluid bg-black">
+    <div class="w-100 row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="logo"></div>
+        </div>
+        <div class="col">        
+            <div class="login" *ngIf="this.userService.isUserValidated == false">
+                <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp;</a>
+                <span>//&nbsp;&nbsp;</span>
+                <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
+            </div>
+            <div>
+                <div class="logout" *ngIf="this.userService.isUserValidated" (click)="onLogout()">LOG OUT</div>
+            </div>
+        </div>
+    </div>   
+</header>
+
 
 <app-navigation-bar></app-navigation-bar>
 

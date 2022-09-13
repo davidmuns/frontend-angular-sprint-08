@@ -1,31 +1,29 @@
-<body class="mt-3">
-    <!-- buttons forward and backward -->
-    <div class="container-fluid" style="padding: 0px;">
-        <div class="row">
-            <div class="col-5"></div>
-            <div class="col-1 text-center">
-                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goPrevious()"
-                    [disabled]="this.isPreviousBtnDisabled">previous</button>
-            </div>
-            <div class="col-1 text-center">
-                <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goNext()"
-                    [disabled]="this.isNextBtnDisabled">next</button>
-            </div>
-            <div class="col-5"></div>
+<!-- buttons forward and backward -->
+<div class="container-fluid m-3" style="padding: 0px;">
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-1 text-center">
+            <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goPrevious()"
+                [disabled]="this.isPreviousBtnDisabled">previous</button>
         </div>
+        <div class="col-1 text-center">
+            <button class="btn bg-dark" type="button" style="color: yellow;" (click)="goNext()"
+                [disabled]="this.isNextBtnDisabled">next</button>
+        </div>
+        <div class="col-5"></div>
     </div>
+</div>
 
-    <!-- starship list -->
-    <div class="container-fluid">
-        <div class="row" *ngFor="let starship of starships">
-            <div class="col-1"></div>
-            <div class="col-10 starship-container mt-4 bg-dark p-3" style="color: gray; border-radius: 15px;">
-                <a (click)="getStarshipById(starship.url)">
-                    <p>{{ starship.name | uppercase }}</p>
-                    <p>{{ starship.model }}</p>
-                </a>
-            </div>
-            <div class="col-1"></div>
+<!-- starship list -->
+<div class="container-fluid mb-5">
+    <div class="row" *ngFor="let starship of starships">
+        <div class="col-1"></div>
+        <div class="col-10 starship-container mt-4 bg-dark p-3" style="color: gray; border-radius: 15px;">
+            <a (click)="getStarshipById(starship.url)">
+                <p>{{ starship.name | uppercase }}</p>
+                <p>{{ starship.model }}</p>
+            </a>
         </div>
+        <div class="col-1"></div>
     </div>
-</body>
+</div>
