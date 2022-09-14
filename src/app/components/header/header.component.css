@@ -6,7 +6,7 @@ header{
     margin-bottom: 0px;
 }
 .logoStarWars{
-    background-image: url(src/assets/white-star-wars-logo.png);
+    background-image: url(src/assets/star-wars-logo.png);
     width:230px;
     height: 100px;
     background-size: cover;
