@@ -1,5 +1,24 @@
 /* src: https://www.youtube.com/watch?v=1lAfd2vR_SQ */
 
+.disney-link {
+   
+    font-size: 15px;
+    text-align: center;
+    color:darkgray;
+    cursor: pointer;
+    /* display: inline-block; */
+}
+.container-fluid {
+    background-color: rgb(12, 8, 8);
+}
+
+a {
+    text-decoration: none;
+}
+a:hover{
+    color:white;
+}
+
 body {
     overflow: hidden;
     background-color: transparent;

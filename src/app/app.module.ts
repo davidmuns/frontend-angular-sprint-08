@@ -1,3 +1,5 @@
+import { CarouselSeriesComponent } from './components/carouselSeries/carouselSeries.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { DataService } from './services/data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,7 +25,9 @@ import { UserService } from './services/user.service';
     StarshipComponent,
     NavigationBarComponent,
     LoginFormComponent,
-    SignUpFormComponent
+    SignUpFormComponent,
+    CarouselComponent,
+    CarouselSeriesComponent
   ],
   imports: [
     BrowserModule,
