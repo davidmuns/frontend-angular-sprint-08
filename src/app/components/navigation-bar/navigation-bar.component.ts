@@ -1,5 +1,7 @@
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor(public readonly userService: UserService) { }
+  constructor(public readonly userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+  gotoShips(){
+    this.router.navigate(['starship/all'])
   }
 
 }
